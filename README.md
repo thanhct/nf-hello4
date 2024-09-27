@@ -25,7 +25,7 @@ kubectl apply -f rolebinding.yml
 ### Run nextflow on minikube
 After successfully applying these files, proceed to run the following command:
 ```
-nextflow kuberun thanhct/nf-hello -r 66284c1 -c nextflow.k8s.config
+nextflow kuberun thanhct/nf-hello -r 1019cce -c nextflow.k8s.config
 ```
 
 ### Run on local (without minikube)
