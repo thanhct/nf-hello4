@@ -90,6 +90,6 @@ workflow {
     MULTIQC(quant_ch.mix(fastqc_ch).collect())
 }
  
-// workflow.onComplete {
-//     log.info ( workflow.success ? "\nDone! Open the following report in your browser --> $params.outdir/multiqc_report.html\n" : "Oops .. something went wrong" )
-// }
+workflow.onComplete {
+    log.info ( workflow.success ? "\nDone! Open the following report in your browser --> $params.outdir/multiqc_report.html\n" : "Oops .. something went wrong" )
+}
