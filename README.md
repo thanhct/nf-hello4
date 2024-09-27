@@ -47,3 +47,20 @@ Navigate to project directory (nf-hello) in your terminial and run the following
 ```
 nextflow run main.nf -c nextflow.local.config -work-dir ./work --debug
 ```
+
+To reset and clean your branch
+
+```
+git fetch origin
+git reset --hard origin/main
+git clean -fdx
+git remote update origin --prune
+```
+
+To delete current repo and checkout new one
+```
+cd .. && \
+rm -rf ./nf-hello && \
+git clone git@github.com:thanhct/nf-hello.git && \
+cd nf-hello
+```
