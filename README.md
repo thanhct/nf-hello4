@@ -60,7 +60,7 @@ git remote update origin --prune
 To delete current repo and checkout new one
 ```
 cd .. && \
-rm -rf ./nf-hello && \
+rm -rf ./nf-hello/ && \
 git clone git@github.com:thanhct/nf-hello.git && \
 cd nf-hello
 ```
