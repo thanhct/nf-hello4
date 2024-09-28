@@ -92,5 +92,5 @@ workflow {
  
 workflow.onComplete {
     log.info ( workflow.success ? "\nDone! Open the following report in your browser --> $params.outdir/multiqc_report.html\n" : "Oops .. something went wrong" )
-    log.info("Great work! Well done.")
+    log.info("Great work! Well done. Changed something")
 }
