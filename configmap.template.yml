@@ -1,0 +1,45 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nf-config-${RANDOM_SUFFIX}
+  namespace: default
+  uid: ${GENERATED_UID}
+  resourceVersion: '${RESOURCE_VERSION}'
+  creationTimestamp: '${CURRENT_TIMESTAMP}'
+  managedFields:
+    - manager: Java
+      operation: Update
+      apiVersion: v1
+      time: '${CURRENT_TIMESTAMP}'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:init.sh: {}
+          f:nextflow.config: {}
+data:
+  init.sh: >-
+    mkdir -p '/mnt/data/cao-thanj'; if [ -d '/mnt/data/cao-thanj' ]; then cd
+    '/mnt/data/cao-thanj'; else echo 'Cannot create directory:
+    /mnt/data/cao-thanj'; exit 1; fi; [ -f /etc/nextflow/scm ] && ln -s
+    /etc/nextflow/scm $NXF_HOME/scm; [ -f /etc/nextflow/nextflow.config ] && cp
+    /etc/nextflow/nextflow.config $PWD/nextflow.config; 
+  nextflow.config: |
+    process {
+       executor = 'k8s'
+       container = 'nextflow/rnaseq-nf'
+    }
+
+    k8s {
+       namespace = 'default'
+       serviceAccount = 'default'
+       storageClaimName = 'nextflow-pvc'
+       storageMountPath = '/mnt/data'
+    }
+
+    params {
+       debug = true
+    }
+
+    runName = '${NF_RUN_NAME}'
