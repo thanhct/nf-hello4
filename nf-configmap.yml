@@ -2,16 +2,16 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: nf-config-ivfdxqmj
+  name: nf-config-y6m4515s
   namespace: default
-  uid: e98a19a1-746c-4f33-839e-00ed0bb8b04d
+  uid: 068a896c-0ae4-4f71-b48a-21f8738c4ac6
   resourceVersion: '0'
-  creationTimestamp: '2024-09-28T17:59:38Z'
+  creationTimestamp: '2024-09-28T18:29:20Z'
   managedFields:
     - manager: Java
       operation: Update
       apiVersion: v1
-      time: '2024-09-28T17:59:38Z'
+      time: '2024-09-28T18:29:20Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:data:
