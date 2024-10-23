@@ -2,16 +2,16 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: nf-config-y6m4515s
+  name: nf-config-1644ku8w
   namespace: default
-  uid: 068a896c-0ae4-4f71-b48a-21f8738c4ac6
+  uid: 05e28408-0e6d-49c5-abd3-0e717fd71824
   resourceVersion: '0'
-  creationTimestamp: '2024-09-28T18:29:20Z'
+  creationTimestamp: '2024-10-23T10:02:43Z'
   managedFields:
     - manager: Java
       operation: Update
       apiVersion: v1
-      time: '2024-09-28T18:29:20Z'
+      time: '2024-10-23T10:02:43Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:data:
@@ -39,7 +39,32 @@ data:
     }
 
     params {
-       debug = true
+       config_profile_name        = 'Test profile'
+      config_profile_description = 'Minimal test dataset to check pipeline function'
+      outdir = '/mnt/data/outdir'
+
+      // Limit resources so that this can run on GitHub Actions
+      max_cpus   = 2
+      max_memory = '6.GB'
+      max_time   = '6.h'
+      // Input data
+      input              = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/samplesheet/v3.10/samplesheet_test.csv'
+      // Genome references
+      fasta              = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/genome.fasta'
+      gtf                = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/genes_with_empty_tid.gtf.gz'
+      gff                = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/genes.gff.gz'
+      transcript_fasta   = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/transcriptome.fasta'
+      additional_fasta   = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/gfp.fa.gz'
+
+      bbsplit_fasta_list = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/bbsplit_fasta_list.txt'
+      hisat2_index       = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/hisat2.tar.gz'
+      salmon_index       = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/salmon.tar.gz'
+      rsem_index         = 'https://raw.githubusercontent.com/nf-core/test-datasets/626c8fab639062eade4b10747e919341cbf9b41a/reference/rsem.tar.gz'
+
+      // Other parameters
+      skip_bbsplit        = false
+      pseudo_aligner      = 'salmon'
+      umitools_bc_pattern = 'NNNN'
     }
 
     runName = '${NF_RUN_NAME}'

@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: stoic-hertz
+  name: elegant-bell
   namespace: default
-  labels: {app: nextflow, runName: stoic-hertz}
+  labels: {app: nextflow, runName: elegant-bell}
 spec:
   restartPolicy: Never
   containers:
-  - name: stoic-hertz
+  - name: elegant-bell
     image: nextflow/nextflow:24.08.0-edge
-    command: [/bin/bash, -c, source /etc/nextflow/init.sh; nextflow run thanhct/nf-hello4
-        -name stoic-hertz -r e970cf7 --debug true]
+    command: [/bin/bash, -c, source /etc/nextflow/init.sh; nextflow run nf-core/rnaseq
+        -name elegant-bell -r 4053b2ec173fc0cfdd13ff2b51cfaceb59f783cb]
     env:
     - {name: NXF_WORK, value: /mnt/data/cao-thanj/work}
     - {name: NXF_ASSETS, value: /mnt/data/projects}
@@ -24,4 +24,4 @@ spec:
   - name: vol-1
     persistentVolumeClaim: {claimName: nextflow-pvc}
   - name: vol-2
-    configMap: {name: nf-config-y6m4515s}
+    configMap: {name: nf-config-1644ku8w}
