@@ -2,16 +2,16 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: nf-config-1644ku8w
+  name: nf-config-hcjki3ar
   namespace: default
-  uid: 05e28408-0e6d-49c5-abd3-0e717fd71824
+  uid: 2085f297-d9a4-4e98-a888-0f734257151c
   resourceVersion: '0'
-  creationTimestamp: '2024-10-23T10:02:43Z'
+  creationTimestamp: '2024-10-23T10:14:07Z'
   managedFields:
     - manager: Java
       operation: Update
       apiVersion: v1
-      time: '2024-10-23T10:02:43Z'
+      time: '2024-10-23T10:14:07Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:data:
